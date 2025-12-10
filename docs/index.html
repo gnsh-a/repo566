@@ -1,12 +1,679 @@
 <!DOCTYPE html>
-<html lang="en">
+<meta charset="utf-8">
+
+<html>
+
+<style type="text/css">
+body {
+	font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 300;
+	font-size: 17px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 980px;
+}
+h1 {
+	font-weight:300;
+	line-height: 1.15em;
+}
+
+h2 {
+	font-size: 1.75em;
+}
+a:link,a:visited {
+	color: #1367a7;
+	text-decoration: none;
+}
+a:hover {
+	color: #208799;
+}
+h1, h2, h3 {
+	text-align: center;
+}
+h1 {
+	font-size: 40px;
+	font-weight: 500;
+}
+h2, h3 {
+	font-weight: 400;
+	margin: 16px 0px 4px 0px;
+}
+.paper-title {
+	padding: 16px 0px 16px 0px;
+}
+section {
+	margin: 32px 0px 32px 0px;
+	text-align: justify;
+	clear: both;
+}
+.col-5 {
+	 width: 20%;
+	 float: left;
+}
+.col-4 {
+	 width: 25%;
+	 float: left;
+}
+.col-3 {
+    width: calc(100% / 4 - 20px);
+    min-width: 180px;
+	float: left;
+    margin: 0 10px;
+    box-sizing: border-box;
+}
+.col-2 {
+	 width: 50%;
+	 float: left;
+}
+.row, .author-row, .affil-row {
+	 overflow: auto;
+}
+.author-row, .affil-row {
+	font-size: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.author-row .author-block {
+    flex: 1 1 auto;
+    max-width: 220px;
+    min-width: 180px;
+    text-align: center;
+    margin: 10px 10px;
+}
+.author-row p {
+	font-size: 16px;
+	margin-top: 0px;
+    margin-bottom: 5px;
+}
+.row {
+	margin: 16px 0px 16px 0px;
+}
+.authors {
+	font-size: 18px;
+}
+.affil-row {
+	margin-top: 16px;
+    font-size: 16px;
+}
+.teaser {
+	max-width: 100%;
+}
+.text-center {
+	text-align: center;
+}
+.screenshot {
+	width: 256px;
+	border: 1px solid #ddd;
+}
+.screenshot-el {
+	margin-bottom: 16px;
+}
+hr {
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ddd;
+	margin: 0;
+}
+.material-icons {
+	vertical-align: -6px;
+}
+p {
+	line-height: 1.25em;
+}
+.caption_justify {
+	font-size: 16px;
+	color: #666;
+	text-align: justify;
+	margin-top: 8px;
+	margin-bottom: 16px;
+}
+.caption {
+	font-size: 16px;
+	color: #666;
+	text-align: center;
+	margin-top: 8px;
+	margin-bottom: 5px;
+}
+.caption_inline {
+	font-size: 16px;
+	color: #666;
+	text-align: center;
+	margin-top: 8px;
+	margin-bottom: 0px;
+}
+.caption_bold {
+	font-size: 16px;
+	color: #666;
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-weight: bold;
+}
+video {
+	display: block;
+	margin: auto;
+    border: 1px solid #ddd;
+	max-width: 100%;
+}
+figure {
+	display: block;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+.blue {
+	color: #2c82c9;
+	font-weight: bold;
+}
+.orange {
+	color: #d35400;
+	font-weight: bold;
+}
+.flex-row {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.paper-btn {
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  margin: 8px;
+  padding: 8px 18px;
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  background-color: #1367a7;
+  color: #ecf0f1 !important;
+  font-size: 20px;
+  width: auto;
+  height: auto;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+.paper-btn-parent {
+	display: flex;
+	justify-content: center;
+	margin: 16px 0px;
+    flex-wrap: wrap;
+}
+.paper-btn:hover {
+	background-color: #208799;
+    opacity: 1;
+}
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 16px;
+	padding-right: 16px;
+}
+.venue {
+	color: #6c6c6c;
+	font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+img.responsive-img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.figure-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.figure-group .figure-item {
+    flex-basis: calc(50% - 20px);
+    margin: 10px;
+    text-align: center;
+}
+.figure-item img {
+    max-width: 100%;
+    height: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    text-align: center;
+}
+table td {
+    text-align: center;
+}
+ul, ol {
+    line-height: 1.6em;
+}
+li {
+    margin: 8px 0;
+}
+
+</style>
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+	<title>3D Human Pose Estimation in Video</title>
+	<meta property="og:description" content="A comprehensive comparison between transformer-based and CNN-based architectures for 3D human pose estimation in video, evaluating VideoPose3D and PoseFormerV2 on the Human3.6M dataset."/>
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+	<!-- MathJax for rendering mathematical equations -->
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<script>
+		MathJax = {
+			tex: {
+				inlineMath: [['$', '$'], ['\\(', '\\)']],
+				displayMath: [['$$', '$$'], ['\\[', '\\]']]
+			}
+		};
+	</script>
 </head>
+
 <body>
-    <h1>Hello World!</h1>
-    <p>Welcome to our CS 566 Group Project website.</p>
+<div class="container">
+	<!-- TITLE SECTION -->
+	<div class="paper-title">
+		<h1>3D Human Pose Estimation in Video</h1>
+	</div>
+
+    <!-- Authors -->
+	<div id="authors">
+		<div class="author-row">
+            <div class="col-3 text-center">
+               <p>Alexandra Kissel</p>
+               <p>UW-Madison</p>
+            </div>
+            <div class="col-3 text-center">
+              <p>Bin Yang</p>
+              <p>UW-Madison</p>
+            </div>
+            <div class="col-3 text-center">
+              <p>Ganesh Arivoli</p>
+              <p>UW-Madison</p>
+            </div>
+		</div>
+		<div class="text-center" style="margin-top: 10px;">
+			<p style="font-size: 16px; color: #6c6c6c;">CS 566 | Fall 2025</p>
+		</div>
+	</div>
+
+	<!-- PAPER BUTTONS SECTION -->
+	<div style="clear: both">
+		<div class="paper-btn-parent">
+			<a class="paper-btn" href="assets/output.mp4" target="_blank"> <span class="material-icons"> videocam </span> Presentation (Video)
+			</a>
+			<a class="paper-btn" href="assets/cs566finalpresentation.pdf" target="_blank"> <span class="material-icons"> description </span> Presentation (PDF)
+			</a>
+		</div>
+	</div>
+
+	<!-- ABSTRACT SECTION -->
+	<section id="abstract">
+		<h2>Abstract</h2>
+		<hr>
+		<p>
+            This project presents a comprehensive comparison between transformer-based and CNN-based architectures for 3D human pose estimation in video. We evaluate two state-of-the-art models—VideoPose3D (a temporal CNN) and PoseFormerV2 (a transformer-based model)—on the Human3.6M dataset using standardized evaluation protocols. Our experiments demonstrate that PoseFormerV2 consistently outperforms VideoPose3D across all metrics, achieving a 3.4% improvement in MPJPE (45.2 mm vs 46.8 mm), 2.5% improvement in P-MPJPE (35.6 mm vs 36.5 mm), and 2.7% improvement in N-MPJPE (43.8 mm vs 45.0 mm). Through both quantitative metrics and qualitative video comparisons, we show that transformer-based architectures provide better global joint understanding and improved stability for 3D pose estimation. Our findings highlight the importance of 2D keypoint detection quality and demonstrate that transformer models represent a promising direction for robust, generalizable 3D pose estimation systems.
+		</p>
+	</section>
+
+    <!-- PROBLEM STATEMENT SECTION -->
+    <section id="problem_statement_section">
+        <h2>Problem Statement</h2>
+        <hr>
+        <p>
+            <strong>The Problem:</strong> Estimating 3D human pose from video
+        </p>
+        <ul>
+            <li><strong>Input:</strong> Sequence of RGB frames</li>
+            <li><strong>Goal:</strong> Recover 3D positions of human joints (head, shoulders, elbows, hips, knees, ankles)</li>
+        </ul>
+        
+        <p><strong>Challenges:</strong></p>
+        <ul>
+            <li>2D image loses depth information</li>
+            <li>Occlusions or clutter can hide body parts</li>
+            <li>Movements can be fast or complex</li>
+            <li>Models must generalize to new scenes and people</li>
+        </ul>
+        
+        <p>
+            <strong>Our Aim:</strong> Compare transformer-based models with classical CNN models for 3D pose estimation in video.
+        </p>
+    </section>
+
+    <!-- WHY IS IT IMPORTANT SECTION -->
+    <section id="why_important_section">
+        <h2>Why is it Important</h2>
+        <hr>
+        <p><strong>Real-world Applications:</strong></p>
+        <ul>
+            <li><strong>Robotics</strong> – for safe human–robot interaction</li>
+            <li><strong>AR/VR</strong> – for tracking body movement in virtual environments</li>
+            <li><strong>Healthcare & rehab</strong> – analyzing patient motion</li>
+            <li><strong>Sports analytics</strong> – performance tracking and injury prevention</li>
+        </ul>
+        
+        <p><strong>Current Limitations:</strong></p>
+        <p>Systems work well in clean conditions but struggle with:</p>
+        <ul>
+            <li>Complex motion sequences</li>
+            <li>Depth uncertainty in single-camera video</li>
+            <li>Hidden objects and clutter</li>
+        </ul>
+        
+        <p>
+            <strong>Impact:</strong> Better 3D pose estimation increases safety, robustness, and usability across many practical applications.
+        </p>
+    </section>
+
+    <!-- OUR METHOD SECTION -->
+    <section id="our_method_section">
+        <h2>Our Method</h2>
+        <hr>
+        
+        <h3>Models Compared</h3>
+        <p>
+            We implemented and compared two architectures using identical 2D keypoints as input:
+        </p>
+        <ol>
+            <li><strong>VideoPose3D</strong> (baseline CNN-based)
+                <ul>
+                    <li>Temporal fully connected network</li>
+                    <li>Reference: Pavllo, D., et al. (2019). "3D human pose estimation in video with temporal convolutions and semi-supervised training"</li>
+                </ul>
+            </li>
+            <li><strong>PoseFormerV2</strong> (transformer-based)
+                <ul>
+                    <li>Uses self-attention to model global spatio-temporal relationships</li>
+                    <li>Frequency-domain representations</li>
+                    <li>Reference: Zhao, Q., et al. (2023). "PoseFormerV2: Exploring frequency domain for efficient and robust 3D human pose estimation"</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <h3>Comparison Methods</h3>
+        <p>We compare them using two methods:</p>
+        <ol>
+            <li><strong>Metrics using Human 3.6M dataset</strong>
+                <ul>
+                    <li>Quantitative evaluation on standardized test set</li>
+                </ul>
+            </li>
+            <li><strong>Visual comparison using random videos:</strong>
+                <ul>
+                    <li><strong>Step a):</strong> 2D Video frame to 2D keypoints using DetectronV2</li>
+                    <li><strong>Step b):</strong> 2D keypoints uplifted to 3D coordinates</li>
+                </ul>
+            </li>
+        </ol>
+    </section>
+
+    <!-- DATASET AND METRICS SECTION -->
+    <section id="dataset_metrics_section">
+        <h2>About the Dataset and Metrics</h2>
+        <hr>
+        
+        <h3>Human3.6M Dataset</h3>
+        <ul>
+            <li>Contains 3.6 million video frames for 11 subjects</li>
+            <li>Each subject performs 15 actions recorded using four cameras</li>
+            <li>We adopt a 17-joint skeleton</li>
+            <li><strong>Train subjects:</strong> S1, S5, S6, S7, S8</li>
+            <li><strong>Test subjects:</strong> S9, S11</li>
+        </ul>
+        
+        <h3>Evaluation Protocols</h3>
+        <p>Three evaluation protocols:</p>
+        <ol>
+            <li><strong>Protocol #1 (MPJPE):</strong> Mean per-joint position error in millimeters
+                <ul>
+                    <li>Mean Euclidean distance between predicted joint positions and ground-truth joint positions</li>
+                </ul>
+            </li>
+            <li><strong>Protocol #2 (P-MPJPE):</strong> Procrustes-aligned Mean Per-Joint Position Error
+                <ul>
+                    <li>Error after alignment with the ground truth in translation, rotation, and scale</li>
+                </ul>
+            </li>
+            <li><strong>Protocol #3 (N-MPJPE):</strong> Normalized Mean Per-Joint Position Error
+                <ul>
+                    <li>Aligns predicted poses with the ground-truth only in scale</li>
+                    <li>Used for semi-supervised experiments</li>
+                </ul>
+            </li>
+        </ol>
+    </section>
+
+    <!-- RESULTS SECTION -->
+    <section id="results_section">
+        <h2>Results and Comparison</h2>
+        <hr>
+        
+        <h3>Quantitative Results</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>S. No.</th>
+                    <th>Error Metric</th>
+                    <th>VideoPose3D</th>
+                    <th>PoseFormerV2</th>
+                    <th>% Improvement</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>MPJPE</td>
+                    <td>46.8 mm</td>
+                    <td>45.2 mm</td>
+                    <td>3.4%</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>P-MPJPE</td>
+                    <td>36.5 mm</td>
+                    <td>35.6 mm</td>
+                    <td>2.5%</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>N-MPJPE</td>
+                    <td>45.0 mm</td>
+                    <td>43.8 mm</td>
+                    <td>2.7%</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p><strong>Key Points:</strong></p>
+        <ul>
+            <li>All metrics measured in millimeters (mm)</li>
+            <li>Lower is better</li>
+            <li>PoseFormerV2 outperforms VideoPose3D across all metrics</li>
+        </ul>
+        
+        <p><strong>Error Metrics Explained:</strong></p>
+        <ul>
+            <li><strong>MPJPE (Protocol #1):</strong> Raw 3D position error</li>
+            <li><strong>P-MPJPE (Protocol #2):</strong> Error after pose alignment</li>
+            <li><strong>N-MPJPE (Protocol #3):</strong> Error after scale normalization</li>
+        </ul>
+        
+        <hr>
+        
+        <h3>Qualitative Results (Sample Videos)</h3>
+        <p><strong>Video Demonstrations:</strong></p>
+        <ul>
+            <li><strong>Dancing:</strong> [Link to video]</li>
+            <li><strong>Tennis:</strong> [Link to video]</li>
+            <li><strong>Running:</strong> [Link to video]</li>
+        </ul>
+        
+        <p><strong>Output 3D Coordinates Comparison:</strong></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Action</th>
+                    <th>Mean 3D Error</th>
+                    <th>Median</th>
+                    <th>Max Error</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tennis</td>
+                    <td>1.067</td>
+                    <td>1.059</td>
+                    <td>1.717</td>
+                </tr>
+                <tr>
+                    <td>Dancing</td>
+                    <td>0.996</td>
+                    <td>0.938</td>
+                    <td>2.134</td>
+                </tr>
+                <tr>
+                    <td>Running</td>
+                    <td>1.009</td>
+                    <td>0.897</td>
+                    <td>1.765</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- <figure style="width: 100%; margin-top: 30px;">
+            <video controls style="max-width: 100%;">
+                <source src="assets/output.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p class="caption">
+                Side-by-side comparison of VideoPose3D and PoseFormerV2 predictions on sample videos.
+            </p>
+        </figure> -->
+    </section>
+
+    <!-- DISCUSSION SECTION -->
+    <section id="discussion_section">
+        <h2>Discussion</h2>
+        <hr>
+        
+        <h3>What We Learned</h3>
+        <ul>
+            <li><strong>Transformers significantly outperform classical temporal models</strong> for 3D pose estimation</li>
+            <li><strong>Data quality (2D keypoints) heavily influences 3D accuracy</strong>
+                <ul>
+                    <li>Improvement from MediaPipe to Detectron</li>
+                </ul>
+            </li>
+            <li><strong>PoseFormer improves global joint understanding</strong> and adds stability when compared to the CNN-based VideoPose3D</li>
+        </ul>
+        
+        <h3>Problems Encountered</h3>
+        <p><strong>2D Keypoint Detection Quality:</strong></p>
+        <ul>
+            <li>Initial use of MediaPipe resulted in lower accuracy</li>
+            <li>Switched to DetectronV2 for better 2D keypoint quality</li>
+            <li>This significantly improved 3D pose estimation results</li>
+        </ul>
+        
+        <p><strong>Coordinate System Alignment:</strong></p>
+        <ul>
+            <li>Different models may output in different coordinate systems</li>
+            <li>Required careful alignment for fair comparison</li>
+        </ul>
+        
+        <p><strong>Temporal Synchronization:</strong></p>
+        <ul>
+            <li>Ensuring frame-by-frame consistency in video comparisons</li>
+        </ul>
+        
+        <h3>Future Directions</h3>
+        <ul>
+            <li><strong>Merge RGB images with depth info using LIDAR</strong></li>
+            <li><strong>Extend to multi-person pose estimation</strong></li>
+            <li><strong>Move toward real-time, on-device inference</strong></li>
+        </ul>
+        
+        <h3>Conclusion</h3>
+        <p>
+            Overall, transformer-based architectures represent a strong next step for building robust and more generalizable 3D pose estimation systems.
+        </p>
+    </section>
+    
+    <!-- RESOURCES SECTION -->
+    <section id="resources_links">
+		<h2>Resources & References</h2>
+		<hr>
+		
+		<h3>Code Repository</h3>
+		<ul>
+			<li>GitHub repository link (if applicable)</li>
+			<li>Key scripts:
+				<ul>
+					<li><code>eval_videopose3d.sh</code> - VideoPose3D evaluation</li>
+					<li><code>eval_poseformerv2.sh</code> - PoseFormerV2 evaluation</li>
+					<li><code>compare_metrics.py</code> - Metrics comparison</li>
+					<li><code>compare_video_models.py</code> - Video comparison tool</li>
+				</ul>
+			</li>
+		</ul>
+		
+		<h3>Datasets</h3>
+		<ul>
+			<li><strong>Human3.6M:</strong> [Dataset reference/link]</li>
+		</ul>
+		
+		<h3>Model References</h3>
+		<p><strong>VideoPose3D:</strong></p>
+		<ul>
+			<li>Pavllo, D., Feichtenhofer, C., Grangier, D., & Auli, M. (2019). "3D human pose estimation in video with temporal convolutions and semi-supervised training"</li>
+			<li>GitHub: <a href="https://github.com/facebookresearch/VideoPose3D" target="_blank">https://github.com/facebookresearch/VideoPose3D</a></li>
+		</ul>
+		
+		<p><strong>PoseFormerV2:</strong></p>
+		<ul>
+			<li>Zhao, Q., Zheng, C., Liu, M., Wang, P., & Chen, C. (2023). "PoseFormerV2: Exploring frequency domain for efficient and robust 3D human pose estimation"</li>
+			<li>GitHub: <a href="https://github.com/QitaoZhao/PoseFormerV2" target="_blank">https://github.com/QitaoZhao/PoseFormerV2</a></li>
+		</ul>
+		
+		<h3>Additional Resources</h3>
+		<ul>
+			<li><strong>Presentation Slides:</strong> <a href="assets/cs566finalpresentation.pdf" target="_blank">cs566finalpresentation.pdf</a></li>
+			<li><strong>Video Demo:</strong> <a href="assets/output.mp4" target="_blank">output.mp4</a></li>
+		</ul>
+	</section>
+
+	<!-- ACKNOWLEDGEMENTS SECTION -->
+	<section id="acknowledgements">
+		<h2>Acknowledgements</h2>
+		<hr>
+		<div class="row">
+			<p>
+            The website template was adapted from <a href="https://tzofi.github.io/diser/" target="_blank">Tzofi Klinghoffer</a>.
+			</p>
+		</div>
+	</section>
+	<!-- END OF CONTENT -->
+</div>
+
 </body>
 </html>
